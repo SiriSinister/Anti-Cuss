@@ -1,0 +1,12 @@
+@EventHandler
+ public void onChat (PlayerChatEven event)
+     Player player = event.getPlayer();
+     String message = event.getMessage().toLowerCase();
+      String[] curse = new String[] {"Fuck, Shit, Ass, Boob, Titty, Hoe, Slut, Skank, Dick, Pussy, Asshole, Dickhead, Fist me, Daddy, Cum, Fuck you, Fuckerhead, Fuckernut, Dumb fuck, Deputy Dumb ass, Idiot, Num Nuts, Limp Dick, Fuck yourself"};
+        for(String blacklist : curse){
+      if (message.contains(blacklist)){
+      event.setCanceled(true);
+      player.chat(message.replace(blacklist, ChatColor.RED + "Message Removed By Anti-Cuss" + ChatColor.WHITE));
+return;
+  }
+}
